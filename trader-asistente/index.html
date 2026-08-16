@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Quantum Asistente Trader — QuantumHive</title>
+<meta name="description" content="Asistente de voz que lee tu grafico de TradingView y tu cuenta de MetaTrader 5, y te acompana mientras operas.">
+<link rel="icon" type="image/png" href="../assets/quantumhive_isotipo_recortado.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000;
+  --bg-subtle:#060610;
+  --bg-card:rgba(8,8,18,.6);
+  --border:rgba(0,212,255,.10);
+  --border-glow:rgba(0,212,255,.18);
+  --border-subtle:rgba(255,255,255,.06);
+  --text:#E8EAED;
+  --text-muted:#8B8FA3;
+  --text-dim:rgba(232,234,237,.4);
+  --accent:#00D4FF;
+  --accent-glow:#00E5FF;
+  --green:#00FF88;
+  --gold:#C9A84C;
+  --max-w:1120px;
+  --font:'Inter Tight',system-ui,sans-serif;
+  --font-display:'Space Grotesk','Inter Tight',system-ui,sans-serif;
+  --font-mono:'Orbitron',monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--font);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.glow-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60vw 60vh at 15% 0%,rgba(0,212,255,.10),transparent 60%),
+    radial-gradient(50vw 50vh at 90% 20%,rgba(201,168,76,.07),transparent 60%);
+}
+.wrap{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:0 22px}
+
+/* Barra superior */
+.topbar{
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+  background:rgba(0,0,0,.72);border-bottom:1px solid var(--border-subtle);
+}
+.topbar-in{
+  max-width:var(--max-w);margin:0 auto;padding:12px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.back{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  color:var(--text-muted);font-size:.9rem;font-weight:500;transition:color .25s var(--ease);
+}
+.back:hover{color:var(--accent)}
+.brandmark{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.16em;color:var(--gold)}
+
+/* Hero */
+.hero{padding:78px 0 56px;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;
+  border:1px solid var(--border-glow);border-radius:100px;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.19em;
+  color:var(--accent);margin-bottom:26px;text-transform:uppercase;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 10px var(--green);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{
+  font-family:var(--font-display);font-size:clamp(2.2rem,6vw,4rem);
+  line-height:1.06;letter-spacing:-.025em;font-weight:700;margin-bottom:20px;
+}
+.h1-accent{
+  background:linear-gradient(120deg,var(--accent),var(--accent-glow) 45%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lead{
+  font-size:clamp(1rem,2.1vw,1.19rem);color:var(--text-muted);
+  max-width:640px;margin:0 auto 34px;
+}
+
+/* Botones */
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:11px;padding:15px 28px;
+  border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent),#0092C7);color:#00131A;
+  box-shadow:0 8px 28px rgba(0,212,255,.28);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(0,212,255,.4)}
+.btn-ghost{border:1px solid var(--border-glow);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
+.meta{margin-top:14px;font-size:.83rem;color:var(--text-dim)}
+
+/* Secciones */
+.section{padding:56px 0;border-top:1px solid var(--border-subtle)}
+.tag{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.19em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:12px;
+}
+h2{font-family:var(--font-display);font-size:clamp(1.5rem,3.4vw,2.1rem);
+  letter-spacing:-.02em;margin-bottom:12px;font-weight:700}
+.sub{color:var(--text-muted);max-width:660px;margin-bottom:30px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px}
+.card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:15px;
+  padding:24px;backdrop-filter:blur(9px);transition:border-color .3s var(--ease),transform .3s var(--ease);
+}
+.card:hover{border-color:var(--border-glow);transform:translateY(-3px)}
+.card h3{font-size:1.04rem;margin-bottom:8px;font-weight:600}
+.card p{color:var(--text-muted);font-size:.93rem}
+.num{font-family:var(--font-mono);font-size:.78rem;color:var(--gold);
+  letter-spacing:.12em;display:block;margin-bottom:11px}
+
+/* Requisitos */
+.req{list-style:none;display:grid;gap:11px;max-width:720px}
+.req li{
+  display:flex;gap:13px;align-items:flex-start;padding:15px 18px;
+  border:1px solid var(--border-subtle);border-radius:11px;background:rgba(255,255,255,.015);
+}
+.check{color:var(--green);flex-shrink:0;margin-top:2px}
+.req strong{display:block;font-weight:600;margin-bottom:2px}
+.req span{color:var(--text-muted);font-size:.9rem}
+
+.note{
+  margin-top:26px;padding:17px 20px;border-left:2px solid var(--gold);
+  background:rgba(201,168,76,.06);border-radius:0 11px 11px 0;
+  color:var(--text-muted);font-size:.9rem;max-width:720px;
+}
+.note strong{color:var(--gold)}
+
+footer{
+  border-top:1px solid var(--border-subtle);padding:34px 0 44px;
+  text-align:center;color:var(--text-dim);font-size:.87rem;
+}
+footer a{color:var(--text-muted);text-decoration:none}
+footer a:hover{color:var(--accent)}
+
+@media(max-width:640px){
+  .hero{padding:52px 0 40px}
+  .btn{width:100%;justify-content:center}
+  .cta-row{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="glow-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="back" href="../">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      QuantumHive
+    </a>
+    <span class="brandmark">TRADER</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot"></span>Beta — solo cuentas demo</span>
+      <h1>Quantum Asistente<br><span class="h1-accent">Trader</span></h1>
+      <p class="lead">
+        Un asistente de voz que lee tu grafico de TradingView y el estado de tu cuenta
+        de MetaTrader 5, y te acompana mientras operas. Instalas, apretas conectar y listo.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/CEO-QUANTUMHIVE/quantum-trader-descargas/releases/latest/download/Quantum-Asistente-Trader-Setup.exe">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar para Windows
+        </a>
+        <a class="btn btn-ghost" href="#requisitos">Ver requisitos</a>
+      </div>
+      <p class="meta">Windows 10 y 11 · 64 bits · ~100 MB</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">Que hace</p>
+      <h2>Habla con tu grafico</h2>
+      <p class="sub">
+        No es un bot que opera solo. Es un asistente que ve lo mismo que vos y
+        ejecuta lo que le pedis, mientras la decision sigue siendo tuya.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>Lee tu grafico</h3>
+          <p>Simbolo, temporalidad e indicadores activos de la ventana de TradingView que ya tenes abierta.</p>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>Opera la interfaz por voz</h3>
+          <p>Cambia el simbolo o la temporalidad, dibuja niveles y crea alertas sin soltar el mouse.</p>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <h3>Conoce tu cuenta</h3>
+          <p>Consulta cuenta, servidor y moneda desde el terminal de MetaTrader 5 que ya usas.</p>
+        </article>
+        <article class="card">
+          <span class="num">04</span>
+          <h3>Trabaja en tu equipo</h3>
+          <p>La conexion es local. No hay que configurar puertos, tokens ni archivos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="requisitos">
+    <div class="wrap">
+      <p class="tag">Antes de instalar</p>
+      <h2>Que necesitas tener</h2>
+      <p class="sub">
+        El asistente se conecta con programas que ya estan en tu equipo. Abre y
+        enlaza esas herramientas solo, pero necesita que existan y que tengas la
+        sesion iniciada.
+      </p>
+      <ul class="req">
+        <li>
+          <svg class="check" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <div><strong>Windows 10 u 11, 64 bits</strong><span>No hay version para Mac ni Linux.</span></div>
+        </li>
+        <li>
+          <svg class="check" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <div><strong>MetaTrader 5 instalado, con sesion iniciada</strong><span>El asistente abre el terminal por vos, pero no puede iniciar sesion en tu cuenta.</span></div>
+        </li>
+        <li>
+          <svg class="check" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <div><strong>TradingView Desktop instalado, con sesion iniciada</strong><span>La primera conexion tarda un poco mas: prepara una copia local de la app.</span></div>
+        </li>
+      </ul>
+      <div class="note">
+        <strong>Sobre operar.</strong> Esta beta permite analizar siempre, y enviar
+        ordenes unicamente en cuentas demo: las operaciones con dinero real estan
+        bloqueadas por codigo. Ademas, tu broker tiene que permitir operar en la
+        cuenta; si no lo permite, el asistente igual lee y analiza.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">Seguridad</p>
+      <h2>Tus claves no salen de tu equipo</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Nunca recibe tus claves</h3>
+          <p>La conexion con MetaTrader 5 usa el terminal que ya tenes abierto. El asistente no pide ni almacena credenciales del broker.</p>
+        </article>
+        <article class="card">
+          <h3>Canal local y cerrado</h3>
+          <p>El puente escucha solo en tu propia maquina y exige un token distinto en cada sesion.</p>
+        </article>
+        <article class="card">
+          <h3>Dinero real bloqueado</h3>
+          <p>En esta beta el envio de ordenes reales esta impedido por codigo, no por configuracion.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="text-align:center">
+      <h2>Listo para probarlo</h2>
+      <p class="sub" style="margin:0 auto 28px">
+        Descarga, instala y aprieta conectar. Si algo no enlaza, escribinos.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/CEO-QUANTUMHIVE/quantum-trader-descargas/releases/latest/download/Quantum-Asistente-Trader-Setup.exe">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar para Windows
+        </a>
+        <a class="btn btn-ghost" href="mailto:ceo@quantumhive.com.ar">Escribirnos</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>QuantumHive · <a href="mailto:ceo@quantumhive.com.ar">ceo@quantumhive.com.ar</a> · <a href="../">Volver al sitio</a></p>
+  </div>
+</footer>
+</body>
+</html>
