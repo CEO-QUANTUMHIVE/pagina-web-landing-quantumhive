@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuantumHive — Multi-Agent Business Infrastructure</title>
+    <meta name="description" content="QuantumHive construye sistemas de IA humanizada con voz, vision, avatar y orquestacion multiagente." />
+    <link rel="icon" type="image/png" href="./assets/quantumhive_isotipo_recortado.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=28" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <canvas class="quantum-bg" id="quantumBg" aria-hidden="true"></canvas>
+    <div class="noise"></div>
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="topbar-bg" aria-hidden="true">
+        <img src="./assets/barra-superior.jpeg" alt="" />
+      </div>
+      <a class="brand" href="#inicio" aria-label="QuantumHive">
+        <img src="./assets/quantumhive_isotipo_recortado.png" alt="QuantumHive" />
+        <span class="brand-text">Quantum<span class="brand-accent">Hive</span></span>
+      </a>
+      <nav class="topnav" id="topnav" aria-label="Principal">
+        <a href="#sistema" data-i18n="nav_sistema">Sistema</a>
+        <a href="#presencia" data-i18n="nav_presencia">Presencia</a>
+        <a href="#frentes" data-i18n="nav_frentes">Frentes</a>
+        <a href="https://websinteligentes.quantumhive.com.ar" class="nav-cta-quantum" data-i18n="nav_webs">Webs inteligentes</a>
+        <a href="./empleados-virtuales/gastronomia/carta-viva/" class="nav-cta-gold" data-i18n="nav_empleados">Empleados virtuales</a>
+        <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
+      </nav>
+      <div class="topbar-right">
+        <a class="panel-access" href="./panel/" data-i18n="nav_panel">Mi panel</a>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="lang-flag" id="langFlag">EN</span>
+        </button>
+        <button class="topbar-cta" data-open-video="true" data-i18n="btn_ver_intro">Ver intro</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-controls="topnav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- HERO — 3D Particle Canvas -->
+      <section id="inicio" class="hero" data-hero>
+        <canvas id="particleCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="hero_tag">Multi-Agent Business Infrastructure</span>
+          </div>
+          <div class="hero-lockup">
+            <img src="./assets/qh-lockup-dorado.jpeg" alt="QuantumHive" class="hero-lockup-img" />
+          </div>
+          <p class="hero-subtitle" data-i18n="hero_lede">
+            QuantumHive construye asistentes de IA humanizados con voz en tiempo real,
+            vision en tiempo real, presencia avatar y arquitectura multiagente.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" data-open-video="true" data-i18n="hero_btn_abrir">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+              <span>Ver secuencia</span>
+            </button>
+            <a class="btn-outline" href="#sistema" data-i18n="hero_btn_explorar">Explorar arquitectura</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIGNAL BAND -->
+      <section class="signal-band" aria-label="Señales">
+        <span data-i18n="band_1">IA humanizada</span>
+        <span class="signal-dot">◆</span>
+        <span data-i18n="band_2">Tiempo real</span>
+        <span class="signal-dot">◆</span>
+        <span data-i18n="band_3">Vision contextual</span>
+        <span class="signal-dot">◆</span>
+        <span data-i18n="band_4">Presencia avatar</span>
+        <span class="signal-dot">◆</span>
+        <span data-i18n="band_5">Orquestacion multiagente</span>
+        <span class="signal-dot">◆</span>
+        <span data-i18n="band_6">Infraestructura aplicada</span>
+      </section>
+
+      <!-- SISTEMA — Bento Grid -->
+      <section id="sistema" class="section bento-section">
+        <div class="section-inner">
+          <div class="section-header reveal-item">
+            <div class="section-tag"><span class="tag-line"></span><span data-i18n="system_tag">Sistema QuantumHive</span></div>
+            <h2 class="section-title" data-i18n="system_title">No es una demo. Es una capa expandible de <span class="text-accent">inteligencia aplicada.</span></h2>
+          </div>
+          <div class="bento-grid bento-system">
+            <article class="bento-card bento-wide glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-arquitectura-sistema.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+                <h3>Quantum Intelligence</h3>
+                <p data-i18n="system_statement">La parte visible puede hablar, mirar o habitar una interfaz. La parte no visible decide, conecta, ejecuta y sostiene el criterio de toda la experiencia.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/microchip-bg-01.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <div class="card-icon icon-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg></div>
+                <h3>Automation Engine</h3>
+                <p>Motor de automatizacion que ejecuta flujos complejos con precision y criterio.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/microchip-bg-02.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <div class="card-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                <h3>Knowledge Graph</h3>
+                <p>Grafo de conocimiento vivo que conecta contexto, memoria y decision en tiempo real.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-honeycomb-ui-01.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <div class="card-icon icon-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg></div>
+                <h3>Workflow Orchestration</h3>
+                <p>Orquestacion de flujos que coordina agentes, datos y acciones sin friccion.</p>
+              </div>
+            </article>
+            <article class="bento-card bento-wide glass tilt-card bento-highlight" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-honeycomb-organic-01.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <div class="card-icon icon-accent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+                <h3>Multi-Agent System</h3>
+                <p data-i18n="system_note">Menos chat flotante. Mas sistema con identidad, criterio y capacidad de operar en el mundo real.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRESENCIA — Bento Grid -->
+      <section id="presencia" class="section bento-section">
+        <div class="section-inner">
+          <div class="section-header reveal-item">
+            <div class="section-tag"><span class="tag-line"></span><span data-i18n="presence_tag">Nueva interfaz</span></div>
+            <h2 class="section-title" data-i18n="presence_title">Cuando la IA adquiere <span class="text-cyan">voz, mirada y forma</span>, cambia la percepcion del sistema entero.</h2>
+          </div>
+          <div class="bento-grid bento-presence">
+            <article class="bento-card bento-tall glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-neural-viva.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="card-tag">Presencia</span>
+                <h3 data-i18n="presence_main_title">Una inteligencia que se siente viva.</h3>
+                <p data-i18n="presence_main_text">QuantumHive no se limita a responder texto. Construye una presencia capaz de conversar, observar, guiar, explicar y sostener una relacion mas rica entre empresa, interfaz y usuario.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-honeycomb-futuristic-01.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="metric-num">01</span>
+                <strong data-i18n="presence_01_title">Voz con identidad</strong>
+                <p data-i18n="presence_01_text">Menos sintetico, mas cercano, mas memorable.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-honeycomb-living-01.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="metric-num">02</span>
+                <strong data-i18n="presence_02_title">Vision con contexto</strong>
+                <p data-i18n="presence_02_text">Lee escena, interfaz o situacion antes de responder.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-honeycomb-organic-01.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="metric-num">03</span>
+                <strong data-i18n="presence_03_title">Avatar con rol</strong>
+                <p data-i18n="presence_03_text">No un truco visual. Una capa real de presencia de marca.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FRENTES — Bento Grid -->
+      <section id="frentes" class="section bento-section">
+        <div class="section-inner">
+          <div class="section-header reveal-item">
+            <div class="section-tag"><span class="tag-line"></span><span data-i18n="fronts_tag">Frentes de expansion</span></div>
+            <h2 class="section-title" data-i18n="fronts_title">Una sola arquitectura. <span class="text-accent">Multiples superficies de negocio.</span></h2>
+          </div>
+          <div class="fronts-cta-wrap reveal-item">
+            <a class="btn-primary btn-large" href="./empleados-virtuales/gastronomia/carta-viva/">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span data-i18n="fronts_cta">Empleados virtuales</span>
+            </a>
+          </div>
+          <div class="bento-grid bento-fronts">
+            <article class="bento-card bento-wide glass tilt-card bento-highlight" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-arquitectura-sistema.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="card-tag">Modelo</span>
+                <h3 data-i18n="fronts_manifesto_title">QuantumHive no nace para un nicho. Nace para ocupar una categoria.</h3>
+                <p data-i18n="fronts_manifesto_text">La misma capa de inteligencia puede convertirse en empleado virtual, interfaz comercial, operador asistido o presencia premium de marca sin perder coherencia.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-honeycomb-bg.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="metric-num">01</span>
+                <h3 data-i18n="front_01_title">Empleados virtuales</h3>
+                <p data-i18n="front_01_text">Recepcion, ventas, soporte, guiado y seguimiento con una presencia mucho mas avanzada que un bot plano.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-dashboard-agi.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="metric-num">02</span>
+                <h3 data-i18n="front_02_title">Interfaces comerciales</h3>
+                <p data-i18n="front_02_text">Sistemas que explican, convierten y sostienen conversaciones con identidad propia.</p>
+              </div>
+            </article>
+            <article class="bento-card glass tilt-card" data-tilt data-reveal-item>
+              <div class="bento-card-bg"><img src="./assets/qh-login-cover.jpeg" alt="" /></div>
+              <div class="bento-card-content">
+                <span class="metric-num">03</span>
+                <h3 data-i18n="front_03_title">Inteligencia operacional</h3>
+                <p data-i18n="front_03_text">Agentes que ordenan, coordinan, activan flujos y conectan decision con ejecucion.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANIFESTO -->
+      <section class="section manifesto-section">
+        <div class="manifesto-content reveal-item">
+          <div class="manifesto-line"></div>
+          <p data-i18n="manifesto_text">QuantumHive combina presencia humana, operacion en tiempo real y arquitectura aplicada para moverse donde la IA deja de ser promesa y empieza a parecer inevitable.</p>
+          <div class="manifesto-line"></div>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="section contact-section">
+        <div class="contact-card glass tilt-card" data-tilt data-reveal-item>
+          <div class="contact-content">
+            <div class="section-tag"><span class="tag-line"></span><span data-i18n="contact_tag">Contacto</span></div>
+            <h2 class="section-title" data-i18n="contact_title">Si queres construir la proxima interfaz de tu empresa, empecemos por ahi.</h2>
+            <p data-i18n="contact_text">QuantumHive esta disenado para companias que quieren salir del modelo de interfaz vieja y entrar en una capa nueva de voz, vision, avatar y sistemas coordinados.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn-primary" href="mailto:ceo@quantumhive.com.ar">ceo@quantumhive.com.ar</a>
+            <a class="btn-outline" href="https://wa.me/5491124070819?text=Hola%20QuantumHive!%20Quiero%20info." target="_blank" rel="noopener">WhatsApp 11 2407-0819</a>
+            <button class="btn-ghost" data-open-video="true" data-i18n="contact_btn_intro">Ver intro otra vez</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <img src="./assets/quantumhive_isotipo_recortado.png" alt="QuantumHive" />
+          <span>QuantumHive</span>
+        </div>
+        <div class="footer-tagline" data-i18n="footer_tagline">IA humanizada en tiempo real</div>
+        <div class="footer-links">
+          <a href="mailto:ceo@quantumhive.com.ar">ceo@quantumhive.com.ar</a>
+          <a href="https://wa.me/5491124070819" target="_blank" rel="noopener">WhatsApp 11 2407-0819</a>
+        </div>
+      </footer>
+    </main>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" aria-hidden="true" hidden>
+      <div class="video-modal-backdrop" data-close-video="true"></div>
+      <div class="video-modal-panel" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <div class="video-modal-header">
+          <div>
+            <div class="section-tag" data-i18n="modal_tag">Intro QuantumHive</div>
+            <h2 id="video-modal-title" data-i18n="modal_title">Secuencia de apertura</h2>
+          </div>
+          <button class="close-button" aria-label="Cerrar video" data-close-video="true" data-i18n="modal_close">Cerrar</button>
+        </div>
+        <div class="video-modal-frame">
+          <video controls playsinline preload="metadata">
+            <source src="./assets/intro-unida.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js?v=28"></script>
+
+    <!-- Widget del agente de voz. Mismo mecanismo que se instala en la
+         landing de cada cliente (docs/instalar-el-agente-en-una-landing.md
+         en MOTOR-DE-VOZ-): un script, nada que tocar del resto del sitio. -->
+    <script
+      src="https://voz.quantumhive.com.ar/widget.js?v=71d4a01"
+        data-tenant="quantumhive"
+        data-modo="avatar"
+        data-avatar-base="https://bcexirhurfigrehfarol.supabase.co/storage/v1/object/public/avatar-cache/quantumhive/landing/sol/v1"
+        defer
+    ></script>
+  </body>
+</html>
