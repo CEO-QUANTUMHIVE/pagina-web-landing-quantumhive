@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <title>Quantum Asistente Trader — QuantumHive</title>
-<meta name="description" content="Asistente de voz que lee tu grafico de TradingView y tu cuenta de MetaTrader 5, y te acompana mientras operas.">
+<meta name="description" content="La inteligencia personal de trading que aprende tu estrategia, entiende como operas y te acompana mientras tomas decisiones.">
 <link rel="icon" type="image/png" href="../assets/quantumhive_isotipo_recortado.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,7 @@
   --accent-glow:#00E5FF;
   --green:#00FF88;
   --gold:#C9A84C;
+  --red:#FF6B6B;
   --max-w:1120px;
   --font:'Inter Tight',system-ui,sans-serif;
   --font-display:'Space Grotesk','Inter Tight',system-ui,sans-serif;
@@ -142,6 +143,38 @@ h2{font-family:var(--font-display);font-size:clamp(1.5rem,3.4vw,2.1rem);
 }
 .note strong{color:var(--gold)}
 
+/* Pasos numerados (Modo Profesor, Ejecucion supervisada) */
+.steps{list-style:none;display:grid;gap:11px;max-width:720px}
+.steps li{
+  display:flex;gap:16px;align-items:flex-start;padding:15px 18px;
+  border:1px solid var(--border-subtle);border-radius:11px;background:rgba(255,255,255,.015);
+}
+.steps .step-n{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  border:1px solid var(--border-glow);color:var(--accent);
+  font-family:var(--font-mono);font-size:.72rem;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.steps span{color:var(--text-muted);font-size:.93rem}
+
+/* Dialogo trader / asistente */
+.dialog{display:grid;gap:14px;max-width:760px}
+.dialog-pair{
+  display:grid;gap:8px;padding:18px 20px;border:1px solid var(--border-subtle);
+  border-radius:14px;background:rgba(255,255,255,.015);
+}
+.dialog-you{font-size:.94rem;color:var(--text)}
+.dialog-you b{color:var(--gold);font-weight:600;font-family:var(--font-mono);font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+.dialog-ai{font-size:.9rem;color:var(--text-muted);padding-left:14px;border-left:2px solid var(--border-glow)}
+.dialog-ai b{color:var(--accent);font-weight:600;font-family:var(--font-mono);font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+
+/* Señal / intervencion (disciplina) */
+.signal-card{border-left:2px solid var(--red)}
+.signal-card h3{color:var(--text);font-size:.98rem}
+.signal-card .num{color:var(--red)}
+
 footer{
   border-top:1px solid var(--border-subtle);padding:34px 0 44px;
   text-align:center;color:var(--text-dim);font-size:.87rem;
@@ -170,13 +203,16 @@ footer a:hover{color:var(--accent)}
 </header>
 
 <main>
+  <!-- HERO -->
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow"><span class="dot"></span>Beta — solo cuentas demo</span>
-      <h1>Quantum Asistente<br><span class="h1-accent">Trader</span></h1>
+      <h1>Tu estrategia. Tu disciplina.<br><span class="h1-accent">Tu inteligencia de trading.</span></h1>
       <p class="lead">
-        Un asistente de voz que lee tu grafico de TradingView y el estado de tu cuenta
-        de MetaTrader 5, y te acompana mientras operas. Instalas, apretas conectar y listo.
+        Quantum Asistente Trader aprende como operas, trabaja con TradingView,
+        mantiene tu plan presente y detecta los patrones que afectan tus decisiones.
+        No es un chat pegado a un grafico: es un copiloto de escritorio que combina
+        voz, analisis, memoria, estrategia y disciplina en un unico entorno.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/CEO-QUANTUMHIVE/quantum-trader-descargas/releases/latest/download/Quantum-Asistente-Trader-Setup.exe">
@@ -189,6 +225,77 @@ footer a:hover{color:var(--accent)}
     </div>
   </section>
 
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">El problema</p>
+      <h2>Saber tu estrategia no es lo mismo que ejecutarla</h2>
+      <p class="sub">
+        El trading no falla solo por falta de informacion. Muchos resultados negativos
+        aparecen cuando el trader deja de ejecutar lo que sabe: rompe reglas, sobreopera,
+        modifica stops, aumenta riesgo despues de perder, entra por impulso o repite
+        comportamientos que despues no recuerda con precision.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <h3>TradingView no te conoce</h3>
+          <p>Muestra el mercado, pero no recuerda como opera cada persona.</p>
+        </article>
+        <article class="card">
+          <h3>Los diarios dependen de vos</h3>
+          <p>Sirven si te acordas de cargarlos. La mayoria de las veces, no te acordas.</p>
+        </article>
+        <article class="card">
+          <h3>Los asistentes genericos no acompanan</h3>
+          <p>Contestan preguntas sueltas, no el flujo completo de una sesion de trading.</p>
+        </article>
+        <article class="card">
+          <h3>Los bots no entienden el contexto</h3>
+          <p>Automatizan reglas, pero no capturan tus excepciones ni tu conducta.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUE HACE / DEMO -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">Como se siente usarlo</p>
+      <h2>Seguis operando en TradingView. Le pedis las cosas hablando.</h2>
+      <p class="sub">
+        No aprendes una plataforma nueva ni cambias tu forma de trabajar. El asistente
+        flota sobre tu grafico y responde en lenguaje natural.
+      </p>
+      <div class="dialog">
+        <div class="dialog-pair">
+          <p class="dialog-you"><b>Vos</b>"Preparame Nasdaq para operar."</p>
+          <p class="dialog-ai"><b>Quantum</b>Configura el espacio de trabajo, temporalidades, indicadores, niveles y contexto segun tu estrategia activa.</p>
+        </div>
+        <div class="dialog-pair">
+          <p class="dialog-you"><b>Vos</b>"Analizame este grafico."</p>
+          <p class="dialog-ai"><b>Quantum</b>Lee el contexto relevante, aplica el procedimiento de analisis y presenta escenarios con invalidacion y riesgo.</p>
+        </div>
+        <div class="dialog-pair">
+          <p class="dialog-you"><b>Vos</b>"Buscame oportunidades en mi watchlist."</p>
+          <p class="dialog-ai"><b>Quantum</b>Revisa los activos, los compara contra tu estrategia y prioriza los mejores contextos.</p>
+        </div>
+        <div class="dialog-pair">
+          <p class="dialog-you"><b>Vos</b>"¿Esta entrada respeta mi plan?"</p>
+          <p class="dialog-ai"><b>Quantum</b>Contrasta la operacion con tus reglas, riesgo, horarios y limites personales.</p>
+        </div>
+        <div class="dialog-pair">
+          <p class="dialog-you"><b>Vos</b>"Te voy a ensenar mi estrategia."</p>
+          <p class="dialog-ai"><b>Quantum</b>Activa el Modo Profesor, estructura tus reglas y aprende mediante ejemplos y correcciones.</p>
+        </div>
+        <div class="dialog-pair">
+          <p class="dialog-you"><b>Vos</b>"¿Estoy repitiendo algun error?"</p>
+          <p class="dialog-ai"><b>Quantum</b>Cruza bitacora, conducta, emociones y resultados para detectar patrones recurrentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPACIDADES -->
   <section class="section">
     <div class="wrap">
       <p class="tag">Que hace</p>
@@ -200,28 +307,156 @@ footer a:hover{color:var(--accent)}
       <div class="grid">
         <article class="card">
           <span class="num">01</span>
-          <h3>Lee tu grafico</h3>
-          <p>Simbolo, temporalidad e indicadores activos de la ventana de TradingView que ya tenes abierta.</p>
+          <h3>Control de TradingView</h3>
+          <p>Simbolos, temporalidades, layouts, indicadores, dibujos, alertas, watchlists y navegacion, por voz o por texto.</p>
         </article>
         <article class="card">
           <span class="num">02</span>
-          <h3>Opera la interfaz por voz</h3>
-          <p>Cambia el simbolo o la temporalidad, dibuja niveles y crea alertas sin soltar el mouse.</p>
+          <h3>Analisis de mercado</h3>
+          <p>Estructura, accion del precio, tendencias, rangos, liquidez, volumen, volatilidad y analisis multitemporal.</p>
         </article>
         <article class="card">
           <span class="num">03</span>
-          <h3>Conoce tu cuenta</h3>
-          <p>Consulta cuenta, servidor y moneda desde el terminal de MetaTrader 5 que ya usas.</p>
+          <h3>Estrategias personales</h3>
+          <p>Definis mercados, setups, confirmaciones, entradas, invalidaciones, riesgo y excepciones propias.</p>
         </article>
         <article class="card">
           <span class="num">04</span>
-          <h3>Trabaja en tu equipo</h3>
-          <p>La conexion es local. No hay que configurar puertos, tokens ni archivos.</p>
+          <h3>Modo Profesor</h3>
+          <p>Le ensenas tu metodologia hablando y marcando ejemplos reales.</p>
+        </article>
+        <article class="card">
+          <span class="num">05</span>
+          <h3>Bitacora automatica</h3>
+          <p>Registro estructurado de operaciones, contexto, decisiones, comportamiento y resultados.</p>
+        </article>
+        <article class="card">
+          <span class="num">06</span>
+          <h3>Plan de trading vivo</h3>
+          <p>Tus reglas dejan de ser un documento pasivo: se consultan durante la sesion.</p>
+        </article>
+        <article class="card">
+          <span class="num">07</span>
+          <h3>Disciplina y autosabotaje</h3>
+          <p>Deteccion de patrones repetitivos entre conducta, emociones y perdidas.</p>
+        </article>
+        <article class="card">
+          <span class="num">08</span>
+          <h3>Ejecucion supervisada</h3>
+          <p>TradingView para analisis y MetaTrader para ejecucion, con barreras de riesgo y confirmacion.</p>
+        </article>
+        <article class="card">
+          <span class="num">09</span>
+          <h3>Modelos personales y bots</h3>
+          <p>Tu experiencia acumulada puede alimentar modelos locales y automatizaciones supervisadas.</p>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- MODO PROFESOR -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">El diferencial</p>
+      <h2>Modo Profesor: ensenale a la IA como operas</h2>
+      <p class="sub">
+        No entrenes con la estrategia de otro. La mayor parte del conocimiento de un
+        trader experimentado no vive en una lista simple de reglas: incluye excepciones,
+        contexto, patrones visuales y decisiones dificiles de formalizar. El Modo Profesor
+        convierte ese conocimiento tacito en algo estructurado, sin obligarte a adaptarte
+        a la IA — la IA se adapta a como vos realmente operas.
+      </p>
+      <ol class="steps">
+        <li><span class="step-n">1</span><span>Explicas tu estrategia en lenguaje natural.</span></li>
+        <li><span class="step-n">2</span><span>Quantum la transforma en reglas estructuradas.</span></li>
+        <li><span class="step-n">3</span><span>Revisas como fue entendida y corregis lo necesario.</span></li>
+        <li><span class="step-n">4</span><span>Se guardan ejemplos validos, invalidos y excepciones.</span></li>
+        <li><span class="step-n">5</span><span>Replay usa sesiones historicas para ampliar los ejemplos.</span></li>
+        <li><span class="step-n">6</span><span>La estrategia queda lista para analisis, alertas, supervision y automatizacion.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CENTRO DE CONTROL -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">Cuando expandis la app</p>
+      <h2>Centro de Control del Trader</h2>
+      <p class="sub">
+        El asistente flotante te acompana sobre TradingView. El Centro de Control
+        concentra tu informacion operativa y personal en un unico lugar.
+      </p>
+      <div class="grid">
+        <article class="card"><h3>Resumen de rendimiento</h3><p>P/L, operaciones, win rate, R promedio, drawdown, rachas y riesgo diario.</p></article>
+        <article class="card"><h3>Calendario de trading</h3><p>Resultados, cumplimiento del plan, errores, emociones y notas por dia.</p></article>
+        <article class="card"><h3>Bitacora detallada</h3><p>Cada operacion, registrada automaticamente y sin depender de tu fuerza de voluntad.</p></article>
+        <article class="card"><h3>Plan de trading editable</h3><p>Reglas que se consultan durante la sesion, no un archivo olvidado.</p></article>
+        <article class="card"><h3>Biblioteca de estrategias</h3><p>Tus metodologias, estructuradas y listas para reutilizar.</p></article>
+        <article class="card"><h3>Estadisticas de conducta</h3><p>Disciplina y patrones de comportamiento, medidos con el tiempo.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCIPLINA -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">Psicologia + datos</p>
+      <h2>Tu peor enemigo puede ser un patron que repetis sin darte cuenta</h2>
+      <p class="sub">
+        Quantum no diagnostica psicologicamente: instrumenta eventos operativos para
+        correlacionar conducta y rendimiento, y descubrir patrones estadisticos repetibles.
+      </p>
+      <div class="grid">
+        <article class="card signal-card"><span class="num">Señal</span><h3>Aumento de tamano tras perdidas</h3><p>Advertencia basada en tu historial y tu limite de riesgo.</p></article>
+        <article class="card signal-card"><span class="num">Señal</span><h3>Movimiento frecuente de stop</h3><p>Recordatorio de la regla y comparacion con resultados previos.</p></article>
+        <article class="card signal-card"><span class="num">Señal</span><h3>Reentradas consecutivas</h3><p>Deteccion de revenge trading o sobreoperacion.</p></article>
+        <article class="card signal-card"><span class="num">Señal</span><h3>Cambio compulsivo de activo</h3><p>Deteccion de perdida de disciplina durante la sesion.</p></article>
+        <article class="card signal-card"><span class="num">Señal</span><h3>Operacion fuera de horario</h3><p>Relacion entre incumplir el plan y la expectativa historica.</p></article>
+        <article class="card signal-card"><span class="num">Señal</span><h3>Estado emocional declarado</h3><p>Correlaciones con errores y rendimiento, sin diagnosticos abusivos.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EJECUCION SUPERVISADA -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">Seguridad operativa</p>
+      <h2>La inteligencia puede sugerir. Vos confirmas cada operacion.</h2>
+      <p class="sub">
+        El sistema separa deliberadamente el razonamiento de la ejecucion. El modelo
+        no tiene autoridad para enviar ordenes por su cuenta.
+      </p>
+      <ol class="steps">
+        <li><span class="step-n">1</span><span>El asistente propone una operacion.</span></li>
+        <li><span class="step-n">2</span><span>Se valida contra tus limites de riesgo.</span></li>
+        <li><span class="step-n">3</span><span>La operacion se previsualiza en el puente de ejecucion.</span></li>
+        <li><span class="step-n">4</span><span>Vos confirmas, explicitamente.</span></li>
+        <li><span class="step-n">5</span><span>MetaTrader ejecuta.</span></li>
+        <li><span class="step-n">6</span><span>El sistema verifica que la posicion quedo como se pidio.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- MODELOS Y BOTS -->
+  <section class="section">
+    <div class="wrap">
+      <p class="tag">A medida que crece tu historial</p>
+      <h2>De estrategia manual a automatizacion supervisada</h2>
+      <p class="sub">
+        Podes empezar usando el asistente como copiloto discrecional y, a medida que
+        acumulas datos y formalizas tu metodologia, convertir partes de esa estrategia
+        en modelos y bots supervisados — siempre bajo tus limites de riesgo.
+      </p>
+      <div class="grid">
+        <article class="card"><h3>Estrategia aprendida</h3><p>Se estructura a partir de lo que le ensenaste en el Modo Profesor.</p></article>
+        <article class="card"><h3>Backtest y paper trading</h3><p>Se valida sobre historico antes de arriesgar nada real.</p></article>
+        <article class="card"><h3>Modelos personales</h3><p>Datasets propios entrenan modelos especializados en como operas vos.</p></article>
+        <article class="card"><h3>Bots supervisados</h3><p>Automatizacion bajo reglas y limites de riesgo explicitos, nunca autonoma sin control.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUISITOS -->
   <section class="section" id="requisitos">
     <div class="wrap">
       <p class="tag">Antes de instalar</p>
@@ -254,6 +489,7 @@ footer a:hover{color:var(--accent)}
     </div>
   </section>
 
+  <!-- SEGURIDAD -->
   <section class="section">
     <div class="wrap">
       <p class="tag">Seguridad</p>
@@ -275,9 +511,10 @@ footer a:hover{color:var(--accent)}
     </div>
   </section>
 
+  <!-- CTA FINAL -->
   <section class="section">
     <div class="wrap" style="text-align:center">
-      <h2>Listo para probarlo</h2>
+      <h2>No operes solo contra tus propios patrones</h2>
       <p class="sub" style="margin:0 auto 28px">
         Descarga, instala y aprieta conectar. Si algo no enlaza, escribinos.
       </p>
