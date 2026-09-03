@@ -610,7 +610,13 @@ body::before {
 }
 
 /* ── FRENTES CTA ── */
-.fronts-cta-wrap { margin-bottom: 40px; }
+.fronts-cta-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
 
 /* ── MANIFESTO ── */
 .manifesto-section {
