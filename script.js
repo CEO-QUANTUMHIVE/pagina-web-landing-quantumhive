@@ -488,12 +488,11 @@
 // ── LANGUAGE TRANSLATIONS ──
 const translations = {
   es: {
-    nav_sistema: 'Sistema', nav_presencia: 'Presencia', nav_frentes: 'Frentes',
     nav_webs: 'Webs inteligentes', nav_panel: 'Mi panel',
     nav_empleados: 'Empleados virtuales', nav_fabrica: 'Fábrica de agentes', nav_contacto: 'Contacto',
-    nav_trader: 'Asistente Trader', nav_scrap: 'INTELIGENCIA COMERCIAL SCRAP', fronts_cta_trader: 'Asistente Trader',
-    fronts_cta_scrap: 'INTELIGENCIA COMERCIAL SCRAP',
-    nav_biblioteca: 'Biblioteca Inteligente',
+    nav_trader: 'Asistente trader', nav_scrap: 'Investigación comercial', fronts_cta_trader: 'Asistente Trader',
+    fronts_cta_scrap: 'Investigación comercial',
+    nav_biblioteca: 'Biblioteca inteligente',
     btn_ver_intro: 'Ver intro', hero_tag: 'Multi-Agent Business Infrastructure',
     hero_lede: 'QuantumHive construye asistentes de IA humanizados con voz en tiempo real, vision en tiempo real, presencia avatar y arquitectura multiagente.',
     hero_btn_abrir: 'Ver secuencia', hero_btn_explorar: 'Explorar arquitectura',
@@ -522,11 +521,10 @@ const translations = {
     modal_tag: 'Intro QuantumHive', modal_title: 'Secuencia de apertura', modal_close: 'Cerrar',
   },
   en: {
-    nav_sistema: 'System', nav_presencia: 'Presence', nav_frentes: 'Verticals',
     nav_webs: 'Smart websites', nav_panel: 'My panel',
     nav_empleados: 'Virtual employees', nav_fabrica: 'Agent factory', nav_contacto: 'Contact',
-    nav_trader: 'Trader Assistant', nav_scrap: 'INTELIGENCIA COMERCIAL SCRAP', fronts_cta_trader: 'Trader Assistant',
-    fronts_cta_scrap: 'INTELIGENCIA COMERCIAL SCRAP',
+    nav_trader: 'Trader assistant', nav_scrap: 'Commercial research', fronts_cta_trader: 'Trader Assistant',
+    fronts_cta_scrap: 'Commercial research',
     nav_biblioteca: 'Smart Library',
     btn_ver_intro: 'Watch intro', hero_tag: 'Multi-Agent Business Infrastructure',
     hero_lede: 'QuantumHive builds humanized AI assistants with real-time voice, real-time vision, avatar presence and multi-agent architecture.',

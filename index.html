@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=31" />
+    <link rel="stylesheet" href="./styles.css?v=32" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -27,23 +27,19 @@
         <span class="brand-text">Quantum<span class="brand-accent">Hive</span></span>
       </a>
       <nav class="topnav" id="topnav" aria-label="Principal">
-        <a href="#sistema" data-i18n="nav_sistema">Sistema</a>
-        <a href="#presencia" data-i18n="nav_presencia">Presencia</a>
-        <a href="#frentes" data-i18n="nav_frentes">Frentes</a>
-        <a href="https://websinteligentes.quantumhive.com.ar" class="nav-cta-quantum" data-i18n="nav_webs">Webs inteligentes</a>
-        <a href="./empleados-virtuales/gastronomia/carta-viva/" class="nav-cta-gold" data-i18n="nav_empleados">Empleados virtuales</a>
-        <a href="./trader-asistente/" class="nav-cta-quantum" data-i18n="nav_trader">Asistente Trader</a>
-        <a href="./inteligencia-comercial-scrap/" class="nav-cta-quantum" data-i18n="nav_scrap">INTELIGENCIA COMERCIAL SCRAP</a>
-        <a href="./fabrica/" class="nav-cta-factory" data-i18n="nav_fabrica">Fábrica de agentes</a>
-        <a href="https://biblioteca-inteligente-854335368640.us-central1.run.app" class="nav-cta-quantum" data-i18n="nav_biblioteca">Biblioteca Inteligente</a>
-        <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
+        <a href="https://websinteligentes.quantumhive.com.ar" class="nav-module" data-i18n="nav_webs">Webs inteligentes</a>
+        <a href="./empleados-virtuales/gastronomia/carta-viva/" class="nav-module" data-i18n="nav_empleados">Empleados virtuales</a>
+        <a href="./trader-asistente/" class="nav-module" data-i18n="nav_trader">Asistente trader</a>
+        <a href="./inteligencia-comercial-scrap/" class="nav-module" data-i18n="nav_scrap">Investigación comercial</a>
+        <a href="./fabrica/" class="nav-module" data-i18n="nav_fabrica">Fábrica de agentes</a>
+        <a href="https://biblioteca-inteligente-854335368640.us-central1.run.app" class="nav-module" data-i18n="nav_biblioteca">Biblioteca inteligente</a>
+        <a href="#contacto" class="nav-contact" data-i18n="nav_contacto">Contacto</a>
       </nav>
       <div class="topbar-right">
         <a class="panel-access" href="./panel/" data-i18n="nav_panel">Mi panel</a>
         <button class="lang-toggle" id="langToggle" aria-label="Switch language">
           <span class="lang-flag" id="langFlag">EN</span>
         </button>
-        <button class="topbar-cta" data-open-video="true" data-i18n="btn_ver_intro">Ver intro</button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-controls="topnav" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -206,7 +202,7 @@
             </a>
             <a class="btn-primary btn-large" href="./inteligencia-comercial-scrap/">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11h6M11 8v6"/></svg>
-              <span data-i18n="fronts_cta_scrap">INTELIGENCIA COMERCIAL SCRAP</span>
+              <span data-i18n="fronts_cta_scrap">Investigación comercial</span>
             </a>
           </div>
           <div class="bento-grid bento-fronts">
@@ -304,7 +300,7 @@
       </div>
     </div>
 
-  <script src="./script.js?v=32"></script>
+  <script src="./script.js?v=33"></script>
 
     <!-- Widget del agente de voz. Mismo mecanismo que se instala en la
          landing de cada cliente (docs/instalar-el-agente-en-una-landing.md
