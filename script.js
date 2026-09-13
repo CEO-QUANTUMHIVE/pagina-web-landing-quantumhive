@@ -493,9 +493,9 @@ const translations = {
     nav_trader: 'Asistente trader', nav_scrap: 'Investigación comercial', fronts_cta_trader: 'Asistente Trader',
     fronts_cta_scrap: 'Investigación comercial',
     nav_biblioteca: 'Biblioteca inteligente',
-    btn_ver_intro: 'Ver intro', hero_tag: 'Multi-Agent Business Infrastructure',
+    hero_tag: 'Multi-Agent Business Infrastructure',
     hero_lede: 'QuantumHive construye asistentes de IA humanizados con voz en tiempo real, vision en tiempo real, presencia avatar y arquitectura multiagente.',
-    hero_btn_abrir: 'Ver secuencia', hero_btn_explorar: 'Explorar arquitectura',
+    hero_btn_explorar: 'Explorar arquitectura',
     band_1: 'IA humanizada', band_2: 'Tiempo real', band_3: 'Vision contextual',
     band_4: 'Presencia avatar', band_5: 'Orquestacion multiagente', band_6: 'Infraestructura aplicada',
     system_tag: 'Sistema QuantumHive', system_title: 'No es una demo. Es una capa expandible de <span class="text-accent">inteligencia aplicada.</span>',
@@ -517,8 +517,7 @@ const translations = {
     manifesto_text: 'QuantumHive combina presencia humana, operacion en tiempo real y arquitectura aplicada para moverse donde la IA deja de ser promesa y empieza a parecer inevitable.',
     contact_tag: 'Contacto', contact_title: 'Si queres construir la proxima interfaz de tu empresa, empecemos por ahi.',
     contact_text: 'QuantumHive esta disenado para companias que quieren salir del modelo de interfaz vieja y entrar en una capa nueva de voz, vision, avatar y sistemas coordinados.',
-    contact_btn_intro: 'Ver intro otra vez', footer_tagline: 'IA humanizada en tiempo real',
-    modal_tag: 'Intro QuantumHive', modal_title: 'Secuencia de apertura', modal_close: 'Cerrar',
+    footer_tagline: 'IA humanizada en tiempo real',
   },
   en: {
     nav_webs: 'Smart websites', nav_panel: 'My panel',
@@ -526,9 +525,9 @@ const translations = {
     nav_trader: 'Trader assistant', nav_scrap: 'Commercial research', fronts_cta_trader: 'Trader Assistant',
     fronts_cta_scrap: 'Commercial research',
     nav_biblioteca: 'Smart Library',
-    btn_ver_intro: 'Watch intro', hero_tag: 'Multi-Agent Business Infrastructure',
+    hero_tag: 'Multi-Agent Business Infrastructure',
     hero_lede: 'QuantumHive builds humanized AI assistants with real-time voice, real-time vision, avatar presence and multi-agent architecture.',
-    hero_btn_abrir: 'Play sequence', hero_btn_explorar: 'Explore architecture',
+    hero_btn_explorar: 'Explore architecture',
     band_1: 'Humanized AI', band_2: 'Real time', band_3: 'Contextual vision',
     band_4: 'Avatar presence', band_5: 'Multi-agent orchestration', band_6: 'Applied infrastructure',
     system_tag: 'QuantumHive System', system_title: "It's not a demo. It's an expandable layer of <span class=\"text-accent\">applied intelligence.</span>",
@@ -550,8 +549,7 @@ const translations = {
     manifesto_text: 'QuantumHive combines human presence, real-time operation and applied architecture to move where AI stops being a promise and starts seeming inevitable.',
     contact_tag: 'Contact', contact_title: "If you want to build your company's next interface, let's start there.",
     contact_text: 'QuantumHive is designed for companies that want to leave the old interface model and enter a new layer of voice, vision, avatar and coordinated systems.',
-    contact_btn_intro: 'Watch intro again', footer_tagline: 'Humanized AI in real time',
-    modal_tag: 'QuantumHive Intro', modal_title: 'Opening sequence', modal_close: 'Close',
+    footer_tagline: 'Humanized AI in real time',
   },
 };
 
@@ -578,36 +576,3 @@ if (langToggle) {
 }
 
 applyTranslations(currentLang);
-
-
-// ── VIDEO MODAL ──
-const modal = document.querySelector('.video-modal');
-const modalVideo = modal?.querySelector('video');
-
-function openVideoModal() {
-  if (!modal) return;
-  modal.hidden = false;
-  modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-  if (modalVideo) { modalVideo.currentTime = 0; modalVideo.play().catch(() => {}); }
-}
-
-function closeVideoModal() {
-  if (!modal) return;
-  modal.hidden = true;
-  modal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-  if (modalVideo) modalVideo.pause();
-}
-
-document.querySelectorAll('[data-open-video="true"]').forEach(btn => {
-  btn.addEventListener('click', openVideoModal);
-});
-
-document.querySelectorAll('[data-close-video="true"]').forEach(btn => {
-  btn.addEventListener('click', closeVideoModal);
-});
-
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeVideoModal();
-});
