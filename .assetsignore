@@ -1,4 +1,4 @@
-﻿.git
+.git
 .git/**
 .github
 .github/**
@@ -8,3 +8,5 @@ Dockerfile
 nginx.conf
 policy.json
 wrangler.jsonc
+.wrangler
+.wrangler/**
