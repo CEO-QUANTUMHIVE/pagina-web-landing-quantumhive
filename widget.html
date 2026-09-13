@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quantum Asistente</title>
+    <script type="module" crossorigin src="/assets/widget-fVSbZIdu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/widget-DVtJsbmg.css">
+  </head>
+  <body>
+    <div id="root">
+      <div id="orbe" class="orbe" data-estado="dormido">
+        <div class="orbe__cabecera">
+          <button id="esfera" class="orbe__esfera" title="Tocame y te atiendo" aria-label="Abrir el asistente">
+            <img id="logo" class="orbe__logo" src="/assets/quantumhive-logo-BIjWZ07N.png" alt="QuantumHive" draggable="false" />
+            <video
+              id="avatar"
+              class="orbe__avatar"
+              muted
+              playsinline
+              preload="auto"
+              aria-label="Avatar de QuantumHive"
+            ></video>
+            <!-- El halo: respira, irradia energia y tira chispas. Portado de
+                 QUANTUM-ASISTENTE-, donde solo aparecia mirando la pantalla;
+                 aca esta siempre, es lo que invita a tocar el orbe. -->
+            <span class="orbe__vida" aria-hidden="true">
+              <!-- Ondas: nacen pegadas al logo y se expanden hacia afuera
+                   desvaneciendose. Escalonadas, la emision es continua. -->
+              <span class="orbe__onda" style="--i: 0"></span>
+              <span class="orbe__onda" style="--i: 1"></span>
+              <span class="orbe__onda" style="--i: 2"></span>
+              <!-- Resplandor pegado al borde del logo, girando despacio:
+                   es de donde "sale" la energia. -->
+              <span class="orbe__vida-aro orbe__vida-aro--energia"></span>
+              <span class="orbe__chispa" style="--i: 0"></span>
+              <span class="orbe__chispa" style="--i: 1"></span>
+              <span class="orbe__chispa" style="--i: 2"></span>
+              <span class="orbe__chispa" style="--i: 3"></span>
+              <span class="orbe__chispa" style="--i: 4"></span>
+              <span class="orbe__chispa" style="--i: 5"></span>
+            </span>
+          </button>
+
+          <button type="button" id="invitacion" class="orbe__invitacion">Tocame y te atiendo</button>
+          <span class="orbe__titulo">Quantum Asistente</span>
+
+          <div class="orbe__acciones">
+            <button id="mic" class="orbe__mic" data-on="false" title="Prender micrófono">
+              <span class="orbe__mic-punto" aria-hidden="true"></span>
+              <span id="mic-texto">Micrófono OFF</span>
+            </button>
+            <button id="freno" class="orbe__boton orbe__boton--freno" data-on="false" title="Cortar">■</button>
+          </div>
+        </div>
+
+        <div class="orbe__cuerpo">
+          <div id="motores" class="orbe__motores" role="radiogroup" aria-label="Motor de conversación"></div>
+
+          <button type="button" id="voces-resumen" class="orbe__fuentes-resumen" hidden>
+            <span id="voces-resumen-texto" class="orbe__fuentes-resumen-texto">
+              Elegí quién querés que te atienda
+            </span>
+            <span id="voces-resumen-flecha" class="orbe__fuentes-resumen-flecha">▾</span>
+          </button>
+
+          <div id="voces" class="orbe__voces" role="radiogroup" aria-label="Voz del asistente" hidden></div>
+
+          <div id="aviso" class="orbe__aviso" hidden></div>
+
+          <div id="registro" class="orbe__registro">
+            <p class="orbe__vacio">
+              Prendé el micrófono y hablame.
+              <br />
+              También podés escribir.
+            </p>
+          </div>
+
+          <div class="orbe__escribir">
+            <input id="borrador" placeholder="Escribí…" />
+            <button id="enviar" aria-label="Enviar">↑</button>
+          </div>
+
+          <p class="orbe__marca-pie">
+            Con tecnología de
+            <a href="https://www.quantumhive.com.ar" target="_blank" rel="noopener">QuantumHive</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
