@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "QuantumHive Business Hub",
+  "short_name": "QuantumHive",
+  "description": "Portal del comerciante para Smart Card NFC, gestión de reputación en Google Maps y crecimiento con IA.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./quantumhive-logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
